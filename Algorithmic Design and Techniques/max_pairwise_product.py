@@ -1,4 +1,6 @@
 # python3
+# Input: an integer (n) and a list (a) that has length n, 
+# Output: maximum value that can be obtained by multiplying two integers
 n = int(input())
 a = [int(x) for x in input().split()]
 assert(len(a) == n)
