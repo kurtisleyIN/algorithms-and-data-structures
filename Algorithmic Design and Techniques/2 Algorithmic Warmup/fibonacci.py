@@ -1,4 +1,6 @@
 # python3
+# Input: An integer (n)
+# Output: The nth Fibonacci number
 def calc_fib(n):
     Fib = [0,1]
     

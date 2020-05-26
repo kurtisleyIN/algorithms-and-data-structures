@@ -1,4 +1,6 @@
 # python3
+# Input: Two strings of lowercase letters (s and t)
+# Output: The edit distance between s and t
 def edit_distance(s, t):
     len_s = len(s) + 1
     len_t = len(t) + 1

@@ -1,17 +1,20 @@
 # python3
+# Input: An integer (n)
+#        A sequence of integers (PartArray)
+# Output: 1 if possible to partition A into three subsets of equal sums (0 otherwise)
 import sys
 
-def partition3(A):
-    total = sum(A)
-    if len(A) < 3 or total % 3:  # 1
+def partition3(PartArray):
+    total = sum(PartArray)
+    if len(PartArray) < 3 or total % 3:  # 1
         return 0
     third = total // 3
-    table = [[0] * (len(A) + 1) for _ in range(third + 1)]  # 2
+    table = [[0] * (len(PartArray) + 1) for _ in range(third + 1)]  # 2
  
     for i in range(1, third + 1):
-        for j in range(1, len(A) + 1):  # 3
-            ii = i - A[j - 1]  # 4
-            if A[j - 1] == i or (ii > 0 and table[ii][j - 1]):  # 5
+        for j in range(1, len(PartArray) + 1):  # 3
+            ii = i - PartArray[j - 1]  # 4
+            if PartArray[j - 1] == i or (ii > 0 and table[ii][j - 1]):  # 5
                 table[i][j] = 1 if table[i][j - 1] == 0 else 2
             else:
                 table[i][j] = table[i][j - 1]  # 6
@@ -20,6 +23,6 @@ def partition3(A):
 
 if __name__ == '__main__':
     input = sys.stdin.read()
-    n, *A = list(map(int, input.split()))
-    print(partition3(A))
+    n, *PartArray = list(map(int, input.split()))
+    print(partition3(PartArray))
 

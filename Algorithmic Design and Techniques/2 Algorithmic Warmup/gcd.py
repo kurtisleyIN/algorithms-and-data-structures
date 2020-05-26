@@ -1,4 +1,6 @@
 # python3
+# Input: Two integers (a and b)
+# Output: The greatest common denominator of a and b
 import sys
 
 def gcd_naive(a, b):

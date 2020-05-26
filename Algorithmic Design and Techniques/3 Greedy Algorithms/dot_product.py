@@ -1,20 +1,24 @@
 # python3
+# Input: An integer (n) that denotes length of the following sequences
+#        Sequence of integers (PPC) that denotes profit-per-click of the ith ad
+#        Sequence of integers (ANC) that denotes average number of clicks of the ith day
+# Output: The maximum value that can attained by dot product
 import sys
 
-def max_dot_product(a, b):
-    IndexLookupA = sorted(range(len(a)), key = lambda k: a[k], reverse = True)
-    IndexLookupB = sorted(range(len(b)), key = lambda k: b[k], reverse = True)
+def max_dot_product(PPC, ANC):
+    IndexLookupA = sorted(range(len(PPC)), key = lambda k: PPC[k], reverse = True)
+    IndexLookupB = sorted(range(len(ANC)), key = lambda k: ANC[k], reverse = True)
     
-    res = 0
+    DP = 0
     for i, j in zip(IndexLookupA, IndexLookupB):
-        res =  res + a[i]*b[j]
+        DP += PPC[i]*ANC[j]
         
-    return res
+    return DP
 
 if __name__ == '__main__':
     input = sys.stdin.read()
     data = list(map(int, input.split()))
     n = data[0]
-    a = data[1:(n + 1)]
-    b = data[(n + 1):]
-    print(max_dot_product(a, b))
+    PPC = data[1:(n + 1)]
+    ANC = data[(n + 1):]
+    print(max_dot_product(PPC, ANC))

@@ -1,4 +1,7 @@
 # python3
+# Input: An integer (n)
+# Output: The minimum number of operations to get to n from 1
+#         The sequence of intermediary numbers
 import sys
 
 def optimal_sequence(n):

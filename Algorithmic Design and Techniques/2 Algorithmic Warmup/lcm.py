@@ -1,4 +1,6 @@
 # python3
+# Input: Two integers (a and b)
+# Output: The least common multiple of a and b
 import sys
 
 def gcd(a, b):

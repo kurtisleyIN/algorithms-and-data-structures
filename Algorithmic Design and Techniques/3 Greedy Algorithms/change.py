@@ -1,21 +1,23 @@
 # python3
+# Input: An integer (money)
+# Output: The minimum number of coins (denominations of 1,5,10) to make change for money
 import sys
 
-def get_change(m):
+def get_change(money):
     Counter = 0
     
-    while m >= 10:
-        m = m-10
-        Counter = Counter + 1
-    while m >= 5:
-        m = m-5
-        Counter = Counter + 1
-    while m >= 1:
-        m = m-1
-        Counter = Counter + 1
+    while money >= 10:
+        money -= 10
+        Counter += 1
+    while money >= 5:
+        money -= 5
+        Counter += 1
+    while money >= 1:
+        money -= 1
+        Counter += 1
         
     return Counter
 
 if __name__ == '__main__':
-    m = int(sys.stdin.read())
-    print(get_change(m))
+    money = int(sys.stdin.read())
+    print(get_change(money))

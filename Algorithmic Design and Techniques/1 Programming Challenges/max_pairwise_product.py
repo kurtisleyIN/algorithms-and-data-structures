@@ -1,13 +1,14 @@
 # python3
-# Input: an integer (n) and a list (a) that has length n, 
-# Output: maximum value that can be obtained by multiplying two integers
+# Input: An integer (n) that denotes the length of the sequence
+#        A sequence of integers (Pairwise)
+# Output: The maximum value that can be obtained by multiplying two integers from the sequence
 n = int(input())
-a = [int(x) for x in input().split()]
-assert(len(a) == n)
+Pairwise = [int(x) for x in input().split()]
+assert(len(Pairwise) == n)
 
 Index1 = 0
 for i in range(1,n):
-    if a[i] > a[Index1]:
+    if Pairwise[i] > Pairwise[Index1]:
         Index1 = i
         
 if Index1 == 0:
@@ -16,8 +17,7 @@ else:
     Index2 = 0
 
 for i in range(1,n):
-    if i != Index1 and a[i] > a[Index2]:
+    if i != Index1 and Pairwise[i] > Pairwise[Index2]:
         Index2 = i
         
-result = a[Index1]*a[Index2]
-print(result)
+print(Pairwise[Index1]*Pairwise[Index2])

@@ -1,5 +1,5 @@
 # python3
-# Input: Two integers, a and b
+# Input: Two integers (a and b)
 # Output: The sum of a and b
 import sys
 

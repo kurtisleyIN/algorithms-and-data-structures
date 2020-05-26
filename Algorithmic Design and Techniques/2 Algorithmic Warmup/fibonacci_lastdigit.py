@@ -1,4 +1,6 @@
 # python3
+# Input: An integer (n)
+# Output: The last digit of the nth Fibonacci number
 def calc_fib_lastdigit(n):
     Fib = [0,1]
     
