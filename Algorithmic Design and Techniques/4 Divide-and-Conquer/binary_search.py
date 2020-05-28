@@ -2,11 +2,17 @@
 # Input: An integer (n) and a sequence of positive integers in increasing order (SearchArray)
 #        A sequence of positive integers
 # Output: Each index of m that matches each element of a (-1 if no match)
+
 import sys
 
 def binary_search(SearchArray, x):
-    left, right = 0, len(SearchArray)-1
     
+    # Intialize the left and right bounds as the first and last element of the array
+    left = 0
+    right = len(SearchArray)-1
+    
+    # Calculate the midpoint between the left and right bounds 
+    # Reassign the left and right bounds (cutting in half) until the searched element is the midpoint
     while left <= right:
         mid = left + ((right-left)//2)
         if x == SearchArray[mid]:

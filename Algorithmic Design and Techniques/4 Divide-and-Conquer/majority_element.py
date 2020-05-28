@@ -1,38 +1,41 @@
 # python3
 # Input: An integer (n)
-#        A sequence of non-negative integers (Maj)
+#        A sequence of non-negative integers (MajArray)
 # Output: 1 if the sequence contains an element that appears strictly more than n/2 times (0 if otherwise)
+
 import sys
 
-def get_majority_element(Maj, left, right):
-    if left == right:
-        return -1
-    if left + 1 == right:
-        return Maj[left]
+def get_majority_element(MajArray, LI, RI):
     
-    LeftSide = get_majority_element(Maj, left, (left + right - 1)//2 + 1)
-    RightSide = get_majority_element(Maj, (left + right - 1)//2 + 1, right)
+    # Exit statement for recursive calls
+    if LI == RI - 1:
+        return MajArray[LI]
     
+    # Recursively splitting MajArray into a tree of sub-arrays
+    LeftMajority = get_majority_element(MajArray, LI, (LI + RI - 1)//2 + 1)
+    RightMajority = get_majority_element(MajArray, (LI + RI - 1)//2 + 1, RI)
+    
+    # Determines if the majority element is on the left/right side for each sub-array, -1 if it doesn't exist
     LeftCount = 0
-    for i in range(left, right):
-        if Maj[i] == LeftSide:
+    for i in range(LI, RI):
+        if MajArray[i] == LeftMajority:
             LeftCount += 1
-    if LeftCount > (right-left)//2:
-        return LeftSide
-
+    if LeftCount > (RI-LI)//2:
+        return LeftMajority
+    
     RightCount = 0
-    for i in range(left, right):
-        if Maj[i] == RightSide:
+    for i in range(LI, RI):
+        if MajArray[i] == RightMajority:
             RightCount += 1
-    if RightCount > (right-left)//2:
-        return RightSide
+    if RightCount > (RI-LI)//2:
+        return RightMajority
     
     return -1
 
 if __name__ == '__main__':
     input = sys.stdin.read()
-    n, *Maj = list(map(int, input.split()))
-    if get_majority_element(Maj, 0, n) != -1:
+    n, *MajArray = list(map(int, input.split()))
+    if get_majority_element(MajArray, 0, n) != -1:
         print(1)
     else:
         print(0)
