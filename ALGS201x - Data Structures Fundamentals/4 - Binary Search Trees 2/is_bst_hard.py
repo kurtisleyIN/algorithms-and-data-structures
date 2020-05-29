@@ -1,4 +1,7 @@
-#!/usr/bin/python3
+# python3
+# Input:
+# Output:
+
 import sys, threading
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)

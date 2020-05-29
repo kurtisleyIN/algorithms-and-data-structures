@@ -1,7 +1,9 @@
-#Uses python3
+# python3
+# Input:
+# Output:
+
 import sys
 import math
-
 
 def distance(v1,v2,x,y):
     return math.sqrt((x[v1]-x[v2])**2 +  (y[v1]-y[v2])**2) 

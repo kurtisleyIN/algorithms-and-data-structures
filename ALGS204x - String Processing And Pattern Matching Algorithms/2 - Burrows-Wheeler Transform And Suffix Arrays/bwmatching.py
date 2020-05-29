@@ -1,4 +1,7 @@
 # python3
+# Input:
+# Output:
+
 import sys
 
 def preprocess_bwt(bwt):

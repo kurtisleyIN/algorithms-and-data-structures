@@ -1,4 +1,6 @@
 # python3
+# Input:
+# Output:
 
 def Min_Heapify(data, heap_size, index, swaps):
     left = int(2*index + 1)

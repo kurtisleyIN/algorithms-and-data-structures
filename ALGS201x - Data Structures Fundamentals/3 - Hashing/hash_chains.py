@@ -1,4 +1,6 @@
 # python3
+# Input:
+# Output:
 
 class QueryProcessor:
     _multiplier = 263

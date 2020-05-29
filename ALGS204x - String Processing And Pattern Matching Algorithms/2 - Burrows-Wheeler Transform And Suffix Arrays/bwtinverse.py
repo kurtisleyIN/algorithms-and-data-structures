@@ -1,4 +1,7 @@
 # python3
+# Input:
+# Output:
+
 import sys
 
 def inverse_bwt(bwt):

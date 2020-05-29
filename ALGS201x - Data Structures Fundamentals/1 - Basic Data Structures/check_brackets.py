@@ -1,4 +1,6 @@
 # python3
+# Input:
+# Output:
 
 from collections import namedtuple
 

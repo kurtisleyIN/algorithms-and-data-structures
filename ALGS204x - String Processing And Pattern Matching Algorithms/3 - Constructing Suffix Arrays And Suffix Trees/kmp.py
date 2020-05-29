@@ -1,4 +1,7 @@
 # python3
+# Input:
+# Output:
+
 import sys
 
 def compute_prefix_function(pattern):

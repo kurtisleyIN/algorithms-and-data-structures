@@ -1,4 +1,7 @@
-#Uses python3
+# python3
+# Input:
+# Output:
+
 import sys
 import math
 
