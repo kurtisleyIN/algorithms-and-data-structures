@@ -56,7 +56,7 @@ def overlap_alignment(m,mu,sigma,string1,string2):
 
     return str(max_score), string1_aligned, string2_aligned
 
-alignment = overlap_alignment(1,5,1,'GAT','CAT')
+alignment = overlap_alignment(1,1,5,'ATCACT','ATG')
 print('\n'.join(alignment))
 
 if __name__ == "__main__":
