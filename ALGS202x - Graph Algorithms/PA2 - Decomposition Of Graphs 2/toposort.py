@@ -15,7 +15,7 @@ def dfs(adj, used, order, x):
 def toposort(adj):
     used = [0] * len(adj)
     order = []
-    #write your code here
+
     for i in range(len(adj)):
         if not used[i]:
             dfs(adj,used,order,i)

@@ -1,38 +1,48 @@
 # python3
-# Input:
-# Output:
+# Input: Sequence of integers (HeapArray)
+# Output: The number of swaps taken to transform the array into a heap
+#         All of the swaps made
 
-def Min_Heapify(data, heap_size, index, swaps):
-    left = int(2*index + 1)
-    right = int(2*index + 2)
-    smallest = index
-    if left <= heap_size and data[left] < data[index]:
-        smallest = left
-    if right <= heap_size and data[right] < data[smallest]:
-        smallest = right
-    if smallest != index:
-        swaps.append((index, smallest))
-        data[index], data[smallest] = data[smallest], data[index]
-        Min_Heapify(data, heap_size, smallest, swaps)
+def Min_Heapify(HeapArray, HeapSize, Swaps, CurrentNode):
+    
+    # Set the left/right child nodes and the smallest node
+    LeftChild = int(2*CurrentNode + 1)
+    RightChild = int(2*CurrentNode + 2)
+    Smallest = CurrentNode
+    
+    # If LeftChild is in the array and it's smaller than CurrentNode, assign it to Smallest 
+    if LeftChild <= HeapSize and HeapArray[LeftChild] < HeapArray[CurrentNode]:
+        Smallest = LeftChild
+    # If RightChild is in the array and it's smaller than CurrentNode, assign it to Smallest 
+    if RightChild <= HeapSize and HeapArray[RightChild] < HeapArray[Smallest]:
+        Smallest = RightChild
+    # If Smallest was reassigned, make note of the swap and make the swap
+    # Recursively call the function to complete the appropriate swaps
+    if Smallest != CurrentNode:
+        Swaps.append((CurrentNode, Smallest))
+        HeapArray[CurrentNode], HeapArray[Smallest] = HeapArray[Smallest], HeapArray[CurrentNode]
+        Min_Heapify(HeapArray, HeapSize, Swaps, Smallest)
         
-def build_heap(data):
-    swaps = []
-    heap_size = len(data) - 1
-    for i in range(int(heap_size//2), -1, -1):
-        Min_Heapify(data, heap_size, i, swaps)
-    return swaps
+def build_heap(HeapArray):
+    # Initialize the swaps array and heap size
+    Swaps = []
+    HeapSize = len(HeapArray) - 1
+    
+    # Loop backwards from HeapSize to -1
+    for CurrentNode in range(int(HeapSize//2), -1, -1):
+        Min_Heapify(HeapArray, HeapSize, Swaps, CurrentNode)
+    return Swaps
 
 def main():
     n = int(input())
-    data = list(map(int, input().split()))
-    assert len(data) == n
+    HeapArray = list(map(int, input().split()))
+    assert len(HeapArray) == n
 
-    swaps = build_heap(data)
+    Swaps = build_heap(HeapArray)
 
-    print(len(swaps))
-    for i, j in swaps:
+    print(len(Swaps))
+    for i, j in Swaps:
         print(i, j)
-
 
 if __name__ == "__main__":
     main()

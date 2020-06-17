@@ -1,6 +1,6 @@
 # python3
-# Input:
-# Output:
+# Input: The number of threads (n_workers), the number of jobs (n_jobs), and the time to complete these jobs (jobs)
+# Output: The thread assigned and the time it will start the job
 
 import heapq
 
