@@ -1,35 +1,38 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (vert) for vertices
+#        An integer (edge) for edges
+#        Next lines (edges) are the vertices that are connected and the weight/cost of each edge
+#        Last integer is the vertex in question
+# Output: '*' if no path, '-' if path exists but it's -Infinity, or the length of the shortest path for every vertex
 
 import sys
 
-def explore(adj,x,visited,shortest):
-    for i in adj[x]:
+def explore(AdjacentList,x,visited,shortest):
+    for i in AdjacentList[x]:
         if not visited[i]:
             visited[i] = True
             shortest[i] = 0
-            explore(adj,i,visited,shortest)
+            explore(AdjacentList,i,visited,shortest)
     return
 
 
-def innerLoop(s,adj,dist,prev):
+def innerLoop(s,AdjacentList,dist,prev):
     
-    for j in range(len(adj)):
-        for ind,k in enumerate(adj[j]):
+    for j in range(len(AdjacentList)):
+        for ind,k in enumerate(AdjacentList[j]):
             jkCost = cost[j][ind]
             if dist[k] > dist[j] + jkCost:
                 dist[k] = dist[j] + jkCost
                 prev[k] = j    
 
-def shortet_paths(adj, cost, s, dist, reachable, shortest, prev):
+def shortet_paths(AdjacentList, cost, s, dist, reachable, shortest, prev):
     dist[s] = 0
     
-    for i in range(len(adj)-1):
-        innerLoop(s,adj,dist,prev)
+    for i in range(len(AdjacentList)-1):
+        innerLoop(s,AdjacentList,dist,prev)
     dist_Vminus1 = list(dist)
 
-    innerLoop(s,adj,dist,prev)     
+    innerLoop(s,AdjacentList,dist,prev)     
 
     dist_V = list(dist)
              
@@ -40,12 +43,12 @@ def shortet_paths(adj, cost, s, dist, reachable, shortest, prev):
 
         shortest[nextV] = 0
 
-        for j in range(len(adj)):
+        for j in range(len(AdjacentList)):
             nextV = prev[nextV]
         shortest[nextV] = 0
         
-        visited = [False] * len(adj)        
-        explore(adj,nextV,visited,shortest)
+        visited = [False] * len(AdjacentList)        
+        explore(AdjacentList,nextV,visited,shortest)
                     
     for ind,i in enumerate(dist):
         if i == float('inf'):
@@ -57,25 +60,25 @@ def shortet_paths(adj, cost, s, dist, reachable, shortest, prev):
 if __name__ == '__main__':
     input = sys.stdin.read()
     data = list(map(int, input.split()))
-    n, m = data[0:2]
+    vert, edge = data[0:2]
     data = data[2:]
-    edges = list(zip(zip(data[0:(3 * m):3], data[1:(3 * m):3]), data[2:(3 * m):3]))
-    data = data[3 * m:]
-    adj = [[] for _ in range(n)]
-    cost = [[] for _ in range(n)]
+    edges = list(zip(zip(data[0:(3*edge):3], data[1:(3*edge):3]), data[2:(3*edge):3]))
+    data = data[3*edge:]
+    AdjacentList = [[] for _ in range(vert)]
+    cost = [[] for _ in range(vert)]
     for ((a, b), w) in edges:
-        adj[a - 1].append(b - 1)
+        AdjacentList[a - 1].append(b - 1)
         cost[a - 1].append(w)
     s = data[0]
     s -= 1
-    dist = [float('inf')] * n
-    reachable = [0] * n
-    prev      = [-1] * n
-    shortest = [1] * n
-    shortet_paths(adj, cost, s, dist, reachable, shortest, prev)
+    dist = [float('inf')] * vert
+    reachable = [0] * vert
+    prev      = [-1] * vert
+    shortest = [1] * vert
+    shortet_paths(AdjacentList, cost, s, dist, reachable, shortest, prev)
 
     
-    for x in range(n):
+    for x in range(vert):
         if reachable[x] == 0:
             print('*')
         elif shortest[x] == 0:

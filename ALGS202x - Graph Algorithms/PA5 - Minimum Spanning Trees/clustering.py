@@ -1,6 +1,8 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (n) defining the number of points
+#        n lines with coordinates
+#        An integer (k) for the number of clusters
+# Output: The maximum value of the largest distance any point from any cluster to any other point in any other cluster
 
 import sys
 import math

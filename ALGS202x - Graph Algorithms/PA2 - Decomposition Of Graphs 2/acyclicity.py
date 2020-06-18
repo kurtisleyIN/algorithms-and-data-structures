@@ -1,22 +1,24 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (vert) for vertices
+#        An integer (edge) for edges
+#        Next lines (edges) are the vertices that are connected
+# Output: 1 if the graph contains a cycle, 0 if not
 
 import sys
 
-def explore(adj,x,visited):
-    for i in adj[x]:
-        if not visited[i]:
-            visited[i] = True
-            explore(adj,i,visited)
+def explore(AdjacentList, x, VisitedList):
+    for i in AdjacentList[x]:
+        if not VisitedList[i]:
+            VisitedList[i] = True
+            explore(AdjacentList, i, VisitedList)
     return
 
-def acyclic(adj):
+def acyclic(AdjacentList):
     acyclic = 0
-    for i in range(len(adj)):
-        visited = [False] * len(adj)
-        explore(adj,i,visited)
-        if visited[i]:
+    for i in range(len(AdjacentList)):
+        VisitedList = [False] * len(AdjacentList)
+        explore(AdjacentList, i, VisitedList)
+        if VisitedList[i]:
             acyclic = 1
             break
     return acyclic
@@ -24,10 +26,10 @@ def acyclic(adj):
 if __name__ == '__main__':
     input = sys.stdin.read()
     data = list(map(int, input.split()))
-    n, m = data[0:2]
+    vert, edge = data[0:2]
     data = data[2:]
-    edges = list(zip(data[0:(2 * m):2], data[1:(2 * m):2]))
-    adj = [[] for _ in range(n)]
+    edges = list(zip(data[0:(2 *edge):2], data[1:(2 *edge):2]))
+    AdjacentList = [[] for _ in range(vert)]
     for (a, b) in edges:
-        adj[a - 1].append(b - 1)
-    print(acyclic(adj))
+        AdjacentList[a - 1].append(b - 1)
+    print(acyclic(AdjacentList))

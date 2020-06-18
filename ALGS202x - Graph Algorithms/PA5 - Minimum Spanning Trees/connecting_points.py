@@ -1,6 +1,7 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (n) defining the number of points
+#        n lines with coordinates
+# Output: The minimum total length of the segments connecting all of the coordinates
 
 import sys
 import math
