@@ -1,8 +1,11 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (vert) for vertices
+#        An integer (edge) for edges
+#        Next lines (edges) are the vertices that are connected and the time it takes to traverse
+# Output: The minimum time to go through a route that visits all vertices exactly once (with exception to the first vertex)
+#         The order in which the vertices are visited (don't output the starting vertex at the end)
 
-from itertools import permutations
+
 INF = 10 ** 9
 
 class Graph:

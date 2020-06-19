@@ -1,17 +1,21 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (vert) for vertices
+#        An integer (edge) for edges
+#        Next lines (edges) are the vertices that are connected
+# Output: A boolean formula in conjunctive normal form (CNF). 
+#         Satisfiable if it is possible to color the vertices of the graph in 3 colors such that any two vertices connected by an edge are different colors
+#         Unsatisfiable if not
 
 import itertools
 
-n, m = map(int, input().split())
-edges = [ list(map(int, input().split())) for i in range(m) ]
+vert, edge = map(int, input().split())
+edges = [list(map(int, input().split())) for i in range(edge)]
 
 def printEquisatisfiableSatFormula():
     list_formulas = ['']
     var_map = {}
     counter = 1
-    for vertex in range(1, n+1):
+    for vertex in range(1, vert+1):
         vars = []
         for i in range(1,4):
             vertex_var = str(vertex) + str(i)
@@ -24,7 +28,7 @@ def printEquisatisfiableSatFormula():
             source_var = str(source) + str(i)
             sink_var = str(sink) + str(i)
             list_formulas.append('-{} -{} 0'.format(var_map[source_var], var_map[sink_var]))
-    list_formulas[0] = '{} {}'.format(len(list_formulas)-1, 3 * n)
+    list_formulas[0] = '{} {}'.format(len(list_formulas)-1, 3*vert)
     print('\n'.join(list_formulas))
 
 def exactly_one_of(iterable):

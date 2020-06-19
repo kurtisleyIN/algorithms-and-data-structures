@@ -1,6 +1,8 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (n) for the number of people in the company
+#        The next line contains "n" integers for the fun factors of each of the people in the company
+#        The following lines describe the hierarchial structure (order doesn't matter)
+# Output: The maximum fun factor (the sum of fun factors of all of the invited people)
 
 import sys
 import threading

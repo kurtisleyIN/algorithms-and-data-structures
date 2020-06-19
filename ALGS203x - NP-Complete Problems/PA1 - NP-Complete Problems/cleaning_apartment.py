@@ -1,11 +1,15 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (vert) for vertices
+#        An integer (edge) for edges
+#        Next lines (edges) are the vertices that are connected
+# Output: A boolean formula in conjunctive normal form (CNF)
+#         Satisfiable if possible to go through every vertex and visit each one exactly once
+#         Unsatisfiable if not
 
 import itertools
 
-n, m = map(int, input().split())
-edges = [ list(map(int, input().split())) for i in range(m) ]
+vert, edge = map(int, input().split())
+edges = [list(map(int, input().split())) for i in range(edge)]
 
 def printEquisatisfiableSatFormula():
     list_formulas = ['']
@@ -13,28 +17,28 @@ def printEquisatisfiableSatFormula():
     counter = 1
     vars = []
 
-    for vertex in range(1, n+1):
-        for position in range(1, n+1):
+    for vertex in range(1, vert+1):
+        for position in range(1, vert+1):
             vertex_var = str(vertex) * 2 + str(position)
             var_map[vertex_var] = counter
             counter += 1
             vars.append(str(var_map[vertex_var]))
     list_formulas.append(' '.join(vars + ['0']))
 
-    for pos1, pos2 in itertools.combinations([pos for pos in range(1,n+1)], 2):
-        for vertex in range(1, n+1):
+    for pos1, pos2 in itertools.combinations([pos for pos in range(1,vert+1)], 2):
+        for vertex in range(1, vert+1):
             vertex_var = str(vertex) * 2 + str(pos1)
 
             adjacent_var = str(vertex) * 2 + str(pos2)
             list_formulas.append('-{} -{} 0'.format(var_map[vertex_var], var_map[adjacent_var]))
 
-    for position in range(1, n+1):
-        same_position_vertices = [str(var_map[str(vertex) * 2 + str(position)]) for vertex in range(1, n+1)]
+    for position in range(1, vert+1):
+        same_position_vertices = [str(var_map[str(vertex) * 2 + str(position)]) for vertex in range(1, vert+1)]
         list_formulas += exactly_one_of(same_position_vertices)
 
-    for vertex1, vertex2 in itertools.combinations([vertex for vertex in range(1,n+1)], 2):
+    for vertex1, vertex2 in itertools.combinations([vertex for vertex in range(1,vert+1)], 2):
         if [vertex1, vertex2] not in edges and [vertex2, vertex1] not in edges:
-            for i in range(1, n):
+            for i in range(1, vert):
                 vertex_var = str(vertex1) * 2 + str(i)
                 adjacent_var = str(vertex2) * 2 + str(i+1)
                 list_formulas.append('-{} -{} 0'.format(var_map[vertex_var], var_map[adjacent_var]))

@@ -1,16 +1,18 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (v) for variables
+#        An integer (c) for clauses
+#        Next "c" lines are the clauses
+# Output: If unsatisfiable, "UNSATISFIABLE"
+#         If satisfiable, "SATISFIABLE" and the assigment for each variable
 
-import itertools
 import sys
 import threading
 
 sys.setrecursionlimit(10**6)
 threading.stack_size(2**26)
 
-n, m = map(int, input().split())
-clauses = [ list(map(int, input().split())) for i in range(m) ]
+v, c = map(int, input().split())
+clauses = [list(map(int, input().split())) for i in range(c)]
 
 class Vertex:
     def __init__(self,u):
@@ -36,7 +38,7 @@ def isSatisfiable():
             if -literal in graph[vertex].scc:
                 return None
     
-    result = [None] * n
+    result = [None] * v
     for scc_root in roots:
 
         for literal in graph[scc_root].scc:
@@ -51,7 +53,7 @@ def isSatisfiable():
 
 def construct_implication_graph(clauses):
     graph = {}
-    for i in range(1,n+1):
+    for i in range(1,v+1):
         graph[i] = Vertex(i)
         graph[-i] = Vertex(-i)
     for clause in clauses:
