@@ -1,6 +1,6 @@
 # python3
-# Input:
-# Output:
+# Input: A string (text) with the '$' at the end
+# Output: A list of starting positions of sorted suffixes separated by spaces
 
 import sys
 

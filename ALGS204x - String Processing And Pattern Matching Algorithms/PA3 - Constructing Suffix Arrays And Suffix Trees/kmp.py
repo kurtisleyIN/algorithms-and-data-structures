@@ -1,6 +1,7 @@
 # python3
-# Input:
-# Output:
+# Input: A string (pattern)
+#        A string (text)
+# Output: All of the starting positions where "pattern" appears in "text"
 
 import sys
 

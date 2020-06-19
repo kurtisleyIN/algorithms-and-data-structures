@@ -1,6 +1,8 @@
 # python3
-# Input:
-# Output:
+# Input: A string (BWT(text))
+#        An integer (n) for the number of patterns
+#        A collection of patterns (patterns)
+# Output: List of integers where each integer is the number of substring matches for the corresponding pattern
 
 import sys
 

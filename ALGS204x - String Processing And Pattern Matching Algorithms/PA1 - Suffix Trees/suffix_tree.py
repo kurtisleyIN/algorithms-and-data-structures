@@ -1,6 +1,6 @@
 # python3
-# Input:
-# Output:
+# Input: A string (text) that ends with the '$' symbol
+# Output: The strings labeling the edges of the suffix tree in any order
 
 import sys
 

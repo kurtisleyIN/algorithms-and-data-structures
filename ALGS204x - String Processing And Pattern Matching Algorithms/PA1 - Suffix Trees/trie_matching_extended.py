@@ -1,6 +1,9 @@
 # python3
-# Input:
-# Output:
+# Input: A string (text)
+#        An integer (n) for the number of patterns
+#        A list for all substrings (patterns)
+# Output: All of the starting positions in "text" where the substring appears in increasing order
+#         If more than one pattern appears at the position, only output the position once
 
 import sys
 

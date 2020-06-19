@@ -1,6 +1,7 @@
 # python3
-# Input:
-# Output:
+# Input: An integer (n) for the number of strings
+#        A list of strings (patterns)
+# Output: Each node-to-node path and the corresponding character (StartNode -> EndNode: Character)
 
 import sys
 

@@ -1,6 +1,6 @@
 # python3
-# Input:
-# Output:
+# Input: A string (transform) with the '$' at the end
+# Output: A string such that the BWT of this string is equal to "transform"
 
 import sys
 
