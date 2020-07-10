@@ -1,4 +1,11 @@
 # python3
+# Input: A match score (m)
+#        A mismatch penalty (mu)
+#        A gap penalty (sigma)
+#        Two strings (string1 and string2)
+# Output: The maximum alignment score of a fitting alignment
+#         The corresponding alignment
+
 import sys
 
 def fitting_alignment(m,mu,sigma,string1,string2):

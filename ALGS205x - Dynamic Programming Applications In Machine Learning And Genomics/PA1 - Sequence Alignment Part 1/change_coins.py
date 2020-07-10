@@ -1,6 +1,6 @@
 # python3
 # Input: An integer (money) and the list of coin denominations (coins)
-# Output: The minimum number of coins (denominations 1,3,4) that make change for m
+# Output: The minimum number of coins that make change for m
 
 import sys
 

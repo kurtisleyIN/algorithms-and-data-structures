@@ -1,4 +1,8 @@
 # python3
+# Input: An integer (source) for the source node
+#        An integer (sink) for the sink node
+#        A directed acyclic graph with the edges and edge weights
+# Output: The length of the longest path from the source node to the sink node
 
 import sys
 
@@ -51,7 +55,8 @@ def longest_path(graph, edges, source, sink):
 if __name__ == "__main__":
     source = int(sys.stdin.readline().strip())
     sink = int(sys.stdin.readline().strip())
-    edges, edge_weight = {}, {}
+    edges = {}
+    edge_weight = {}
     
     for pair in [line.strip().split('->') for line in sys.stdin.readlines()]:
         if int(pair[0]) not in edges:
@@ -60,8 +65,6 @@ if __name__ == "__main__":
             edges[int(pair[0])].append(int(pair[1].split(':')[0]))
 
         edge_weight[int(pair[0]), int(pair[1].split(':')[0])] = int(pair[1].split(':')[1])
-    
-   
     
     length, path = longest_path(edge_weight, edges, source, sink)
     print(length)

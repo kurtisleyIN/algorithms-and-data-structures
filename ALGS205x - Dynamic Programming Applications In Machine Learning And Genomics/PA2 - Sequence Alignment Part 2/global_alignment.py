@@ -1,4 +1,10 @@
 # python3
+# Input: A match score (m)
+#        A mismatch penalty (mu)
+#        A gap penalty (sigma)
+#        Two strings (string1 and string2)
+# Output: The maximum alignment score
+#         The corresponding alignment
 
 import sys
 

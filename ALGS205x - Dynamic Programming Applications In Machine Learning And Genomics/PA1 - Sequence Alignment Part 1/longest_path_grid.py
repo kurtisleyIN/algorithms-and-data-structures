@@ -1,4 +1,9 @@
 # python3
+# Input: An integer (n) for the number of rows
+#        An integer (m) for the number of columns
+#        A matrix (down) for the down weights
+#        A matrix (right) for the right weights
+# Output: The length of the longest path from the source (0,0) to the sink (n,m)
 
 import sys
 

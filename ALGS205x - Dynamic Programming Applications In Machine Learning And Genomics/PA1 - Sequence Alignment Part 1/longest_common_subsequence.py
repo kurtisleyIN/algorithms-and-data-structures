@@ -1,4 +1,6 @@
 # python3
+# Input: Two strings (string1 and string2)
+# Output: The longest common subsequence of string1 and string2
 
 import sys
 
