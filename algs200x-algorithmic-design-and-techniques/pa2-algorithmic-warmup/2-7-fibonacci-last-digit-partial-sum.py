@@ -1,15 +1,15 @@
 #! python3
 import sys
 
+
 def fibonacci_partial_sum(start, end):
     """ Calculate the last digit of the partial sum of the Fibonacci sequence """
-
-    # Initialize the Fibonacci sequence
-    fibonacci = [0, 1]
 
     if end <= 1:
         return end
 
+    # Build the modulo pattern for the Fibonacci last digit sum
+    fibonacci = [0, 1]
     for index in range(2, 61):
         fibonacci.append((fibonacci[index-2] + fibonacci[index-1]) % 10)
 
