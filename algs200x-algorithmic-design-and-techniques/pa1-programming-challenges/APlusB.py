@@ -1,12 +1,13 @@
-# python3
-# Input: Two integers (a and b)
-# Output: The sum of a and b
-
+#! python3
 import sys
 
-input = sys.stdin.read()
-tokens = input.split()
-a = int(tokens[0])
-b = int(tokens[1])
 
-print(a + b)
+def main(numbers: list) -> None:
+    """ Print the sum of the first two integers in a list """
+    print(int(numbers[0]) + int(numbers[1]))
+
+
+if __name__ == '__main__':
+
+    tokens = sys.stdin.read().split()
+    main(tokens)
