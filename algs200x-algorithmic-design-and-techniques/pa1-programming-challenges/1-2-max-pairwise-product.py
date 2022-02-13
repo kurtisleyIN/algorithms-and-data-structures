@@ -6,7 +6,8 @@ def main(numbers):
     largest_number = max(numbers)
     numbers.remove(largest_number)
     next_largest_number = max(numbers)
-    print(largest_number*next_largest_number)
+
+    return largest_number*next_largest_number
 
 
 if __name__ == '__main__':
@@ -15,4 +16,4 @@ if __name__ == '__main__':
     sequence = [int(x) for x in input().split()]    # Sequence of integers
     assert(n == len(sequence))
 
-    main(sequence)
+    print(main(sequence))
