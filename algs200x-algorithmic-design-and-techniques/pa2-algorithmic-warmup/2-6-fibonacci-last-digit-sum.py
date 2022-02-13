@@ -2,7 +2,7 @@
 import sys
 
 def fibonacci_sum(final):
-    """ Calculate the last digit of the sum of the Fibonacci number """
+    """ Calculate the last digit of the sum of the Fibonacci sequence """
 
     # Initialize the Fibonacci sequence
     fibonacci = [0, 1]
