@@ -1,12 +1,12 @@
 #! python3
 
 def calc_fib(final):
-    """ Calculate the Fibonacci sequence up to the input value"""
+    """ Calculate the Fibonacci sequence up to the input value """
     
-    # Initialize the Fibonacci array
+    # Initialize the Fibonacci sequence
     fibonacci = [0, 1]
     
-    # If n <= 1, no calculation is required
+    # If n <= 1, no calculation required
     if final <= 1:
         return final
 
