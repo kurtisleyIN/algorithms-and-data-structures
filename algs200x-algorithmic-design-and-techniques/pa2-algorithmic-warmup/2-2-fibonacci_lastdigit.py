@@ -12,12 +12,12 @@ def get_fibonacci_last_digit_naive(final):
 
     # Calculate and append the Fibonacci last digit sequence until the nth value is found
     for index in range(2, final+1):
-        fibonacci.append((fibonacci[index-1] + fibonacci[index-2]) % 10)
+        fibonacci.append((fibonacci[index-2] + fibonacci[index-1]) % 10)
 
     return fibonacci[final]
+
 
 if __name__ == '__main__':
 
     n = int(input())                    # Integer to which the sequence should be calculated
     print(get_fibonacci_last_digit_naive(n))
-

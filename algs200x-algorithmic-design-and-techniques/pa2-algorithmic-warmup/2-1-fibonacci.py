@@ -12,9 +12,10 @@ def calc_fib(final):
 
     # Calculate and append the Fibonacci array until the nth value is found
     for index in range(2, final+1):
-        fibonacci.append(fibonacci[index-1] + fibonacci[index-2])
+        fibonacci.append(fibonacci[index-2] + fibonacci[index-1])
 
     return fibonacci[final]
+
 
 if __name__ == '__main__':
 
